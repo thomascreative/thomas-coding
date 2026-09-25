@@ -3,883 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metro Cyber | Printing & Branding</title>
+<title>Thomas ❤️</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#030604;
-    color:white;
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #061638, #075bd3, #071a3d);
+    overflow-x: hidden;
 }
 
-html{
-    scroll-behavior:smooth;
+.running-light {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 6px;
+    background: #00eaff;
+    box-shadow: 0 0 15px #00eaff, 0 0 35px #00eaff;
+    animation: moveLight 2.5s linear infinite;
+    z-index: 10;
 }
 
-:root{
-    --green:#39ff14;
-    --dark:#030604;
-    --card:#0a120c;
+@keyframes moveLight {
+    from { left: -100%; }
+    to { left: 100%; }
 }
 
-/* PASSWORD SCREEN */
-#login{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    background:#020402;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+.welcome {
+    padding: 90px 20px 40px;
 }
 
-#login:before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(rgba(57,255,20,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(57,255,20,.04) 1px,transparent 1px);
-    background-size:40px 40px;
-    animation:gridMove 5s linear infinite;
+h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
 }
 
-@keyframes gridMove{
-    from{background-position:0 0}
-    to{background-position:40px 40px}
+.name {
+    font-size: 25px;
 }
 
-.login-box{
-    width:90%;
-    max-width:550px;
-    padding:45px;
-    text-align:center;
-    position:relative;
-    z-index:2;
-    background:rgba(5,12,7,.92);
-    border:1px solid rgba(57,255,20,.45);
-    border-radius:25px;
-    box-shadow:
-    0 0 30px rgba(57,255,20,.15),
-    inset 0 0 30px rgba(57,255,20,.05);
+button {
+    margin-top: 30px;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #0758c9;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.logo{
-    width:150px;
-    height:150px;
-    object-fit:contain;
-    margin-bottom:20px;
-    filter:drop-shadow(0 0 20px rgba(57,255,20,.35));
+button:hover {
+    transform: scale(1.05);
 }
 
-.login-box h1{
-    font-size:42px;
-    letter-spacing:4px;
+#passwordBox {
+    display: none;
+    max-width: 350px;
+    margin: 30px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
 }
 
-.login-box h1 span{
-    color:var(--green);
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.neon{
-    height:3px;
-    width:100%;
-    margin:20px 0;
-    background:var(--green);
-    box-shadow:0 0 15px var(--green),0 0 35px var(--green);
-    animation:neon 1s infinite alternate;
+#wrong {
+    color: #ffd1d1;
 }
 
-@keyframes neon{
-    from{opacity:1}
-    to{opacity:.35}
+#message {
+    display: none;
+    padding: 20px;
 }
 
-.login-box p{
-    color:#a9b7ad;
-    margin-bottom:25px;
+.flowers {
+    font-size: 55px;
+    margin: 20px 0;
+    animation: float 2s ease-in-out infinite alternate;
 }
 
-.login-form{
-    display:flex;
-    gap:10px;
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
 }
 
-.login-form input{
-    flex:1;
-    padding:15px;
-    background:#071008;
-    color:white;
-    border:1px solid rgba(57,255,20,.4);
-    border-radius:10px;
-    outline:none;
-}
-
-button{
-    padding:15px 25px;
-    border:0;
-    border-radius:10px;
-    background:var(--green);
-    color:#031004;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 0 20px rgba(57,255,20,.3);
-}
-
-#error{
-    color:#ff5555;
-    margin-top:12px;
-}
-
-/* HEADER */
-header{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
-    background:rgba(3,6,4,.85);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(57,255,20,.15);
-}
-
-.nav{
-    max-width:1200px;
-    margin:auto;
-    padding:12px 25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-weight:bold;
-}
-
-.brand img{
-    width:50px;
-    height:50px;
-    object-fit:contain;
-}
-
-.brand small{
-    display:block;
-    color:var(--green);
-    font-size:10px;
-    letter-spacing:2px;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-}
-
-nav a:hover{
-    color:var(--green);
-}
-
-/* HERO */
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:120px 20px;
-    position:relative;
-    background:
-    radial-gradient(circle at center,rgba(57,255,20,.09),transparent 40%),
-    #030604;
-}
-
-.hero h2{
-    font-size:clamp(50px,9vw,120px);
-    line-height:.9;
-    letter-spacing:-5px;
-}
-
-.hero h2 span{
-    color:var(--green);
-    text-shadow:0 0 25px rgba(57,255,20,.4);
-}
-
-.hero p{
-    max-width:750px;
-    margin:30px auto;
-    color:#b6c2b9;
-    font-size:20px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-    padding:15px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.btn-green{
-    background:var(--green);
-    color:#031004;
-}
-
-.btn-dark{
-    background:#0b120d;
-    color:white;
-    border:1px solid rgba(57,255,20,.3);
-}
-
-.running-light{
-    position:absolute;
-    bottom:70px;
-    width:100%;
-    height:2px;
-    background:rgba(57,255,20,.15);
-    overflow:hidden;
-}
-
-.running-light:after{
-    content:"";
-    position:absolute;
-    width:25%;
-    height:100%;
-    background:var(--green);
-    box-shadow:0 0 15px var(--green);
-    animation:run 2s linear infinite;
-}
-
-@keyframes run{
-    from{left:-25%}
-    to{left:100%}
-}
-
-/* SECTIONS */
-section{
-    padding:100px 25px;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.title small{
-    color:var(--green);
-    letter-spacing:4px;
-}
-
-.title h3{
-    font-size:50px;
-    margin-top:10px;
-}
-
-.title p{
-    color:#9fa9a1;
-    max-width:650px;
-    margin:15px auto;
-}
-
-/* SERVICES */
-.services{
-    background:#061009;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:var(--card);
-    border:1px solid rgba(57,255,20,.12);
-    border-radius:20px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(57,255,20,.6);
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-}
-
-.card img{
-    width:100%;
-    height:210px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:25px;
-}
-
-.card h4{
-    font-size:24px;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#aab5ad;
-}
-
-/* ABOUT */
-.about{
-    background:#030604;
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about h3{
-    font-size:55px;
-}
-
-.about h3 span{
-    color:var(--green);
-}
-
-.about p{
-    color:#aeb9b1;
-    margin:20px 0;
-    font-size:17px;
-}
-
-.about-box{
-    padding:35px;
-    background:#08100a;
-    border:1px solid rgba(57,255,20,.2);
-    border-radius:20px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.stat{
-    padding:25px;
-    background:#050a06;
-    border-radius:15px;
-}
-
-.stat strong{
-    display:block;
-    color:var(--green);
-    font-size:25px;
-    margin-bottom:8px;
-}
-
-.stat span{
-    color:#8f9b92;
-}
-
-/* CONTACT */
-.contact{
-    background:#07100a;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.contact-box{
-    background:#08110b;
-    border:1px solid rgba(57,255,20,.2);
-    border-radius:20px;
-    padding:35px;
-}
-
-.contact-box h3{
-    font-size:45px;
-}
-
-.contact-box h3 span{
-    color:var(--green);
-}
-
-.contact-item{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:18px;
-    margin-bottom:12px;
-    background:#050906;
-    border-radius:12px;
-    color:white;
-    text-decoration:none;
-}
-
-.contact-item:hover{
-    border:1px solid var(--green);
-}
-
-.icon{
-    width:45px;
-    height:45px;
-    display:grid;
-    place-items:center;
-    background:rgba(57,255,20,.1);
-    color:var(--green);
-    border-radius:10px;
-    font-weight:bold;
-}
-
-.contact-item small{
-    display:block;
-    color:#78857b;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#758078;
-    border-top:1px solid rgba(57,255,20,.1);
-}
-
-/* MOBILE */
-@media(max-width:850px){
-
-    nav{
-        display:none;
-    }
-
-    .services-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:550px){
-
-    .services-grid{
-        grid-template-columns:1fr;
-    }
-
-    .login-form{
-        flex-direction:column;
-    }
-
-    .hero h2{
-        font-size:55px;
-    }
-
-    .title h3,
-    .about h3{
-        font-size:40px;
-    }
+.sweet {
+    max-width: 650px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.card {
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 0 25px rgba(0,234,255,0.25);
+}
+
+.footer {
+    margin-top: 45px;
+    padding: 25px;
+    font-size: 18px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div id="login">
-
-<div class="login-box">
-
-<img src="YOUR_LOGO_HERE.png" class="logo">
-
-<p>SECURE ACCESS // METRO CYBER</p>
-
-<h1>WELCOME TO <span>METRO</span></h1>
-
-<div class="neon"></div>
-
-<p>
-Printing • Branding • Graphic Design • Cyber Services
-</p>
-
-<div class="login-form">
-<input type="password" id="password" placeholder="Enter password">
-<button onclick="login()">ENTER</button>
-</div>
-
-<div id="error"></div>
-
-</div>
-</div>
-
-<!-- HEADER -->
-<header>
-
-<div class="nav">
-
-<a href="#home" class="brand">
-<img src="YOUR_LOGO_HERE.png">
-<div>
-METRO CYBER
-<small>PRINT • BRAND • CREATE</small>
-</div>
-</a>
-
-<nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-<a href="https://wa.me/254705729430">WhatsApp</a>
-</nav>
-
-</div>
-
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-<div>
-
-<p style="color:#39ff14;letter-spacing:5px;">
-MLOLONGO • KENYA
-</p>
-
-<h2>
-WELCOME TO<br>
-<span>METRO CYBER</span>
-</h2>
-
-<p>
-Professional printing, branding, graphic design and cyber services
-delivered with quality, speed and customer satisfaction.
-</p>
-
-<div class="buttons">
-
-<a href="#services" class="btn btn-green">
-OUR SERVICES ↗
-</a>
-
-<a href="#contact" class="btn btn-dark">
-CONTACT US →
-</a>
-
-</div>
-
-</div>
-
 <div class="running-light"></div>
 
-</section>
+<section class="welcome">
 
-<!-- SERVICES -->
-<section class="services" id="services">
+    <h1>WELCOME 💙</h1>
 
-<div class="container">
+    <div class="name">
+        I go by the name <strong>Thomas</strong> ❤️
+    </div>
 
-<div class="title">
+    <button onclick="showPassword()">
+        Click Here 💙
+    </button>
 
-<small>WHAT WE DO</small>
+    <div id="passwordBox">
 
-<h3>OUR SERVICES</h3>
+        <h2>🔐 Enter Password</h2>
 
-<p>
-Modern creative and printing solutions for individuals,
-businesses, organizations and events.
-</p>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+        >
 
-</div>
+        <button onclick="openMessage()">
+            Open 💌
+        </button>
 
-<div class="services-grid">
+        <p id="wrong"></p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>Large Format Printing</h4>
-<p>
-Banners, posters, backdrops, stickers, signage and promotional displays.
-</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>T-Shirt Printing</h4>
-<p>
-Custom branded T-shirts for businesses, events, teams and personal projects.
-</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>DTF Printing</h4>
-<p>
-High-quality direct-to-film transfers with vibrant and durable results.
-</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>Graphic Design</h4>
-<p>
-Logos, flyers, posters, business cards, social media graphics and artwork.
-</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>Business Branding</h4>
-<p>
-Vehicle branding, shop branding, stationery and corporate promotional materials.
-</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1000&q=85">
-<div class="card-content">
-<h4>Cyber Services</h4>
-<p>
-Typing, scanning, online applications, document services and digital support.
-</p>
-</div>
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
+<section id="message">
 
-<div class="container about-grid">
+    <div class="card">
 
-<div>
+        <div class="flowers">
+            🌹 🌷 🌸 💐 🌺 🌹
+        </div>
 
-<p style="color:#39ff14;letter-spacing:4px;">
-ABOUT METRO CYBER
-</p>
+        <h1>For My Special Girl ❤️</h1>
 
-<h3>
-Professional work.<br>
-<span>Zero shortcuts.</span>
-</h3>
+        <div class="sweet">
 
-<p>
-Metro Cyber Services provide professional printing, branding,
-graphic design and cyber services with quality, speed and customer satisfaction.
-</p>
+            <p>
+                You are one of those beautiful people who can
+                make an ordinary moment feel special. 🌸
+            </p>
 
-<p>
-We combine modern creative thinking with dependable production
-to help individuals, businesses and organizations look professional
-and get noticed.
-</p>
+            <p>
+                Your smile brings happiness, your presence makes
+                beautiful memories, and your kindness makes you
+                truly special. ❤️
+            </p>
 
-<a href="#contact" class="btn btn-green">
-START A PROJECT ↗
-</a>
+            <p>
+                Your smile is beautiful, your presence is
+                unforgettable, and there is something truly
+                special about the way you light up every moment. ❤️🌹
+            </p>
 
-</div>
+            <p>
+                May your days always be filled with happiness,
+                laughter, beautiful moments and plenty of reasons
+                to smile. 🌷
+            </p>
 
-<div class="about-box">
+            <p>
+                Never forget how special you are. Keep shining
+                and keep being the amazing person you are. 💕
+            </p>
 
-<div class="stats">
+        </div>
 
-<div class="stat">
-<strong>PRINT</strong>
-<span>Everyday printing to large-format production.</span>
-</div>
+        <div class="flowers">
+            🌹 🌸 🌷 💐 💕 🌺 🌷 🌹
+        </div>
 
-<div class="stat">
-<strong>BRAND</strong>
-<span>Professional branding that makes businesses visible.</span>
-</div>
+    </div>
 
-<div class="stat">
-<strong>DESIGN</strong>
-<span>Creative artwork prepared for digital and print.</span>
-</div>
-
-<div class="stat">
-<strong>CYBER</strong>
-<span>Fast digital and document services in Mlolongo.</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
+    <div class="footer">
+        — By Gaddafi ❤️
+    </div>
 
 </section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-
-<div class="container contact-grid">
-
-<div class="contact-box">
-
-<p style="color:#39ff14;letter-spacing:4px;">
-GET IN TOUCH
-</p>
-
-<h3>
-Let's make<br>
-<span>something sharp.</span>
-</h3>
-
-<p style="color:#aeb9b1;margin:20px 0;">
-Tell us what you need printed, branded or designed
-and we'll help you get it production-ready.
-</p>
-
-<div class="buttons" style="justify-content:flex-start;">
-
-<a class="btn btn-green"
-href="https://wa.me/254705729430">
-WHATSAPP US
-</a>
-
-<a class="btn btn-dark"
-href="tel:+254705729430">
-CALL US
-</a>
-
-</div>
-
-</div>
-
-<div class="contact-box">
-
-<a class="contact-item" href="tel:+254705729430">
-
-<div class="icon">☎</div>
-
-<div>
-<small>CALL US</small>
-<strong>0705 729 430</strong>
-</div>
-
-</a>
-
-<a class="contact-item"
-href="mailto:metrocyber55@gmail.com">
-
-<div class="icon">@</div>
-
-<div>
-<small>EMAIL</small>
-<strong>metrocyber55@gmail.com</strong>
-</div>
-
-</a>
-
-<a class="contact-item"
-href="https://wa.me/254705729430">
-
-<div class="icon">WA</div>
-
-<div>
-<small>WHATSAPP</small>
-<strong>Chat with Metro Cyber</strong>
-</div>
-
-</a>
-
-<a class="contact-item"
-href="https://www.google.com/maps/search/?api=1&query=Mlolongo%2C%20Kenya"
-target="_blank">
-
-<div class="icon">⌖</div>
-
-<div>
-<small>LOCATION</small>
-<strong>Mlolongo, Kenya</strong>
-</div>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 METRO CYBER SERVICES
-<br>
-PRINTING • BRANDING • GRAPHIC DESIGN • CYBER SERVICES
-
-</footer>
 
 <script>
 
-function login(){
-
-    const password =
-    document.getElementById("password").value;
-
-    if(password === "metro"){
-
-        document.getElementById("login").style.display="none";
-
-    }else{
-
-        document.getElementById("error").innerText=
-        "ACCESS DENIED — incorrect password.";
-
-    }
-
+function showPassword() {
+    document.getElementById("passwordBox").style.display = "block";
 }
 
-document
-.getElementById("password")
-.addEventListener("keydown",function(e){
+function openMessage() {
 
-    if(e.key==="Enter"){
-        login();
+    const password =
+        document.getElementById("password").value;
+
+    if (password === "thomasloves Debby") {
+
+        document.getElementById("passwordBox").style.display = "none";
+
+        document.getElementById("message").style.display = "block";
+
+        window.scrollTo({
+            top: document.getElementById("message").offsetTop,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        document.getElementById("wrong").textContent =
+            "Wrong password. Try again.";
+
     }
-
-});
+}
 
 </script>
 
