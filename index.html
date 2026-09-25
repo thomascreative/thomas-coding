@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thomas ❤️</title>
+
+<title>A Special Letter ❤️</title>
 
 <style>
 * {
@@ -13,140 +14,248 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top, #18345f, #070d19 65%);
+    color: #f8f1df;
     text-align: center;
-    color: white;
-    background: linear-gradient(135deg, #061638, #075bd3, #071a3d);
     overflow-x: hidden;
 }
 
-.running-light {
+/* Moving blue light */
+.light {
     position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
-    height: 6px;
-    background: #00eaff;
-    box-shadow: 0 0 15px #00eaff, 0 0 35px #00eaff;
-    animation: moveLight 2.5s linear infinite;
-    z-index: 10;
+    height: 4px;
+    background: #00c8ff;
+    box-shadow: 0 0 15px #00c8ff, 0 0 35px #00c8ff;
+    animation: runningLight 3s linear infinite;
+    z-index: 20;
 }
 
-@keyframes moveLight {
-    from { left: -100%; }
-    to { left: 100%; }
+@keyframes runningLight {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 100%;
+    }
 }
 
+/* Opening screen */
 .welcome {
-    padding: 90px 20px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.logo {
+    font-size: 60px;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 h1 {
-    font-size: 45px;
-    margin-bottom: 15px;
+    font-size: clamp(36px, 8vw, 58px);
+    margin: 10px 0;
 }
 
-.name {
-    font-size: 25px;
+.subtitle {
+    font-size: 20px;
+    color: #d9c58c;
+    margin-bottom: 30px;
 }
 
-button {
-    margin-top: 30px;
-    padding: 15px 32px;
-    border: none;
+.open-btn,
+.unlock-btn,
+.replay-btn {
+    border: 1px solid #d9c58c;
+    background: linear-gradient(135deg, #d9c58c, #9e7b2e);
+    color: #111;
+    padding: 14px 28px;
     border-radius: 30px;
-    background: white;
-    color: #0758c9;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-button:hover {
-    transform: scale(1.05);
+.open-btn:hover,
+.unlock-btn:hover,
+.replay-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(217,197,140,0.5);
 }
 
-#passwordBox {
+/* Envelope */
+#envelopeArea {
     display: none;
-    max-width: 350px;
-    margin: 30px auto;
+    padding: 30px;
+}
+
+.envelope {
+    font-size: 100px;
+    animation: envelopeFloat 2s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Password */
+#passwordArea {
+    display: none;
+    max-width: 380px;
+    margin: 20px auto;
     padding: 25px;
-    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(217,197,140,0.5);
     border-radius: 20px;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px);
 }
 
 input {
     width: 100%;
     padding: 14px;
-    border: none;
+    margin: 15px 0;
+    border: 1px solid #bda96b;
     border-radius: 10px;
+    background: #111a2a;
+    color: white;
     font-size: 16px;
-    margin-top: 10px;
+    outline: none;
 }
 
 #wrong {
-    color: #ffd1d1;
+    color: #ffaaaa;
 }
 
-#message {
+/* Letter */
+#letterArea {
     display: none;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 70px 20px;
 }
 
-.flowers {
-    font-size: 55px;
-    margin: 20px 0;
-    animation: float 2s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
-}
-
-.sweet {
-    max-width: 650px;
+.letter {
+    max-width: 720px;
     margin: auto;
-    font-size: 21px;
-    line-height: 1.8;
+    padding: 40px 30px;
+    background:
+        linear-gradient(135deg, #fffdf5, #eee4c9);
+    color: #302719;
+    border-radius: 8px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 30px rgba(217,197,140,0.15);
+    text-align: left;
 }
 
-.card {
-    max-width: 700px;
-    margin: auto;
-    padding: 25px;
-    border-radius: 25px;
-    background: rgba(255,255,255,0.10);
-    box-shadow: 0 0 25px rgba(0,234,255,0.25);
+.letter h2 {
+    text-align: center;
+    color: #604b1d;
+    font-size: 32px;
+}
+
+.line {
+    width: 80px;
+    height: 2px;
+    background: #b89a4b;
+    margin: 15px auto 30px;
+}
+
+#typedText {
+    font-size: 19px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-style: italic;
+    font-size: 20px;
+    color: #604b1d;
+}
+
+.replay {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Floating decorations */
+.decor {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 5;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .footer {
-    margin-top: 45px;
-    padding: 25px;
-    font-size: 18px;
+    margin-top: 25px;
+    text-align: center;
+    color: #d9c58c;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="running-light"></div>
+<div class="light"></div>
 
-<section class="welcome">
+<!-- Opening -->
+<section class="welcome" id="welcome">
 
-    <h1>WELCOME 💙</h1>
+    <div class="logo">✉️</div>
 
-    <div class="name">
-        I go by the name <strong>Thomas</strong> ❤️
+    <h1>A Special Letter</h1>
+
+    <div class="subtitle">
+        A private message from Thomas ❤️
     </div>
 
-    <button onclick="showPassword()">
-        Click Here 💙
+    <button class="open-btn" onclick="showEnvelope()">
+        Open the Letter
     </button>
 
-    <div id="passwordBox">
+</section>
 
-        <h2>🔐 Enter Password</h2>
+<!-- Envelope -->
+<section id="envelopeArea">
+
+    <div class="envelope">💌</div>
+
+    <h2>This letter is private 🔐</h2>
+
+    <p>Enter the secret password to continue.</p>
+
+    <button class="open-btn" onclick="showPassword()">
+        Continue
+    </button>
+
+    <div id="passwordArea">
 
         <input
             type="password"
@@ -154,8 +263,8 @@ input {
             placeholder="Enter password"
         >
 
-        <button onclick="openMessage()">
-            Open 💌
+        <button class="unlock-btn" onclick="unlockLetter()">
+            Unlock ❤️
         </button>
 
         <p id="wrong"></p>
@@ -164,88 +273,145 @@ input {
 
 </section>
 
-<section id="message">
+<!-- Letter -->
+<section id="letterArea">
 
-    <div class="card">
+    <div class="letter">
 
-        <div class="flowers">
-            🌹 🌷 🌸 💐 🌺 🌹
-        </div>
+        <h2>To Someone Special ❤️</h2>
 
-        <h1>For My Special Girl ❤️</h1>
+        <div class="line"></div>
 
-        <div class="sweet">
+        <div id="typedText"></div>
 
-            <p>
-                You are one of those beautiful people who can
-                make an ordinary moment feel special. 🌸
-            </p>
-
-            <p>
-                Your smile brings happiness, your presence makes
-                beautiful memories, and your kindness makes you
-                truly special. ❤️
-            </p>
-
-            <p>
-                Your smile is beautiful, your presence is
-                unforgettable, and there is something truly
-                special about the way you light up every moment. ❤️🌹
-            </p>
-
-            <p>
-                May your days always be filled with happiness,
-                laughter, beautiful moments and plenty of reasons
-                to smile. 🌷
-            </p>
-
-            <p>
-                Never forget how special you are. Keep shining
-                and keep being the amazing person you are. 💕
-            </p>
-
-        </div>
-
-        <div class="flowers">
-            🌹 🌸 🌷 💐 💕 🌺 🌷 🌹
+        <div class="signature">
+            With love,<br>
+            Thomas ❤️
         </div>
 
     </div>
 
+    <div class="replay">
+        <button class="replay-btn" onclick="location.reload()">
+            ↻ Replay
+        </button>
+    </div>
+
     <div class="footer">
-        — By Gaddafi ❤️
+        Made with ❤️ by Thomas
     </div>
 
 </section>
 
 <script>
 
-function showPassword() {
-    document.getElementById("passwordBox").style.display = "block";
+const letterText =
+`Some people enter our lives and make ordinary moments feel a little more beautiful.
+
+Your smile, your kindness, and the way you bring warmth into simple moments make you truly special.
+
+I hope this letter reminds you that you are appreciated, valued, and worthy of beautiful moments every day.
+
+May your days be filled with happiness, laughter, peaceful moments, and countless reasons to smile.
+
+Keep shining, keep being yourself, and never forget that you are special. ❤️`;
+
+function showEnvelope() {
+
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("envelopeArea").style.display = "block";
+
 }
 
-function openMessage() {
+function showPassword() {
+
+    document.getElementById("passwordArea").style.display = "block";
+
+}
+
+function unlockLetter() {
 
     const password =
         document.getElementById("password").value;
 
-    if (password === "thomasloves Debby") {
+    if (password === "thomaslovesdebby") {
 
-        document.getElementById("passwordBox").style.display = "none";
+        document.getElementById("envelopeArea").style.display = "none";
+        document.getElementById("letterArea").style.display = "block";
 
-        document.getElementById("message").style.display = "block";
+        typeLetter();
+
+        startDecorations();
 
         window.scrollTo({
-            top: document.getElementById("message").offsetTop,
+            top: 0,
             behavior: "smooth"
         });
 
     } else {
 
         document.getElementById("wrong").textContent =
-            "Wrong password. Try again.";
+            "Incorrect password. Please try again.";
 
     }
+}
+
+function typeLetter() {
+
+    const box = document.getElementById("typedText");
+
+    box.textContent = "";
+
+    let i = 0;
+
+    function typing() {
+
+        if (i < letterText.length) {
+
+            box.textContent += letterText.charAt(i);
+
+            i++;
+
+            setTimeout(typing, 25);
+
+        }
+
+    }
+
+    typing();
+
+}
+
+function startDecorations() {
+
+    const symbols = ["❤️", "🌸", "🌹", "✨", "💕"];
+
+    setInterval(() => {
+
+        const item = document.createElement("div");
+
+        item.className = "decor";
+
+        item.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        item.style.left =
+            Math.random() * 100 + "vw";
+
+        item.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        item.style.animationDuration =
+            (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 10000);
+
+    }, 700);
+
 }
 
 </script>
