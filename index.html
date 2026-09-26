@@ -3,415 +3,614 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A we just announce the movement ❤️</title>
+<title>Gaddafi Entertainment</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    margin: 0;
+    background: #050505;
+    color: white;
     min-height: 100vh;
-    font-family: Georgia, "Times New Roman", serif;
-    background:
-        radial-gradient(circle at top, #18345f, #070d19 65%);
-    color: #f8f1df;
-    text-align: center;
-    overflow-x: hidden;
 }
 
-/* Moving yellow light */
-.light {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 4px;
-    background: #00c8ff;
-    box-shadow: 0 0 15px #00c8ff, 0 0 35px #00c8ff;
-    animation: runningLight 3s linear infinite;
-    z-index: 20;
-}
-
-@keyframes runninggreen neon disco lights {
-    from {
-        left: -100%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-/* Opening screen */
-.welcome {
+/* LOGIN */
+#loginPage {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    background:
+      radial-gradient(circle at center, #242424 0%, #080808 55%, #000 100%);
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 45px 30px;
+    text-align: center;
+    border: 1px solid #444;
+    border-radius: 25px;
+    background: rgba(15,15,15,.92);
+    box-shadow: 0 0 50px rgba(255,255,255,.08);
 }
 
 .logo {
-    font-size: 60px;
-    margin-bottom: 15px;
-    animation: float 3s ease-in-out infinite;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
 }
 
-@keyframes float {
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-h1 {
-    font-size: clamp(36px, 8vw, 58px);
-    margin: 10px 0;
+.logo span {
+    color: #00eaff;
 }
 
 .subtitle {
-    font-size: 20px;
-    color: #d9c58c;
+    color: #aaa;
     margin-bottom: 30px;
-}
-
-.open-btn,
-.unlock-btn,
-.replay-btn {
-    border: 1px solid #d9c58c;
-    background: linear-gradient(135deg, #d9c58c, #9e7b2e);
-    color: #111;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.open-btn:hover,
-.unlock-btn:hover,
-.replay-btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 20px rgba(217,197,140,0.5);
-}
-
-/* Envelope */
-#envelopeArea {
-    display: none;
-    padding: 30px;
-}
-
-.envelope {
-    font-size: 100px;
-    animation: envelopeFloat 2s ease-in-out infinite;
-}
-
-@keyframes envelopeFloat {
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-/* Password */
-#passwordArea {
-    display: none;
-    max-width: 380px;
-    margin: 20px auto;
-    padding: 25px;
-    border: 1px solid rgba(217,197,140,0.5);
-    border-radius: 20px;
-    background: rgba(255,255,255,0.07);
-    backdrop-filter: blur(10px);
 }
 
 input {
     width: 100%;
-    padding: 14px;
-    margin: 15px 0;
-    border: 1px solid #bda96b;
-    border-radius: 10px;
-    background: #111a2a;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    background: #111;
     color: white;
-    font-size: 16px;
     outline: none;
+    margin-bottom: 15px;
+    font-size: 16px;
 }
 
-#wrong {
-    color: #ffaaaa;
+input:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 15px rgba(0,234,255,.2);
 }
 
-/* Letter */
-#letterArea {
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#00eaff,#8b5cff);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#error {
+    color: #ff4d6d;
+    margin-top: 15px;
     display: none;
-    min-height: 100vh;
-    padding: 70px 20px;
 }
 
-.letter {
-    max-width: 720px;
-    margin: auto;
-    padding: 40px 30px;
-    background:
-        linear-gradient(135deg, #fffdf5, #eee4c9);
-    color: #302719;
+/* MAIN SITE */
+#mainSite {
+    display: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px 6%;
+    background: rgba(5,5,5,.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.brand span {
+    color: #00eaff;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    color: #ccc;
+    padding: 9px 12px;
     border-radius: 8px;
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.5),
-        0 0 30px rgba(217,197,140,0.15);
-    text-align: left;
 }
 
-.letter h2 {
+nav button:hover {
+    background: #181818;
+    color: #00eaff;
+}
+
+.hero {
+    min-height: 480px;
+    padding: 100px 7%;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(90deg, #050505 10%, rgba(5,5,5,.7), rgba(5,5,5,.1)),
+      radial-gradient(circle at 80% 40%, #173d45, #080808 55%);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #00eaff;
+    border-radius: 30px;
+    color: #00eaff;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px,8vw,85px);
+    line-height: .95;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #00eaff;
+}
+
+.hero p {
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+section {
+    padding: 45px 7%;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 18px;
+}
+
+.card {
+    min-height: 180px;
+    border: 1px solid #252525;
+    background: linear-gradient(145deg,#151515,#090909);
+    border-radius: 18px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #00eaff;
+    box-shadow: 0 10px 35px rgba(0,234,255,.1);
+}
+
+.icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #999;
+    line-height: 1.5;
+}
+
+.search-box {
+    margin-bottom: 25px;
+}
+
+footer {
     text-align: center;
-    color: #604b1d;
-    font-size: 32px;
+    padding: 35px;
+    border-top: 1px solid #222;
+    color: #777;
 }
 
-.line {
-    width: 80px;
-    height: 2px;
-    background: #b89a4b;
-    margin: 15px auto 30px;
+.logout {
+    color: #ff5c7a !important;
 }
 
-#typedText {
-    font-size: 19px;
-    line-height: 1.9;
-    white-space: pre-line;
-}
-
-.signature {
-    margin-top: 30px;
-    text-align: right;
-    font-style: italic;
-    font-size: 20px;
-    color: #604b1d;
-}
-
-.replay {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Floating decorations */
-.decor {
-    position: fixed;
-    top: -40px;
-    pointer-events: none;
-    animation: fall linear forwards;
-    z-index: 5;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
+/* MOBILE */
+@media(max-width:700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
     }
-}
 
-.footer {
-    margin-top: 25px;
-    text-align: center;
-    color: #d9c58c;
-    font-size: 14px;
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 80px 7%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="light"></div>
+<!-- LOGIN PAGE -->
+<div id="loginPage">
 
-<!-- Opening -->
-<section class="welcome" id="welcome">
+    <div class="login-box">
 
-    <div class="logo">✉️</div>
+        <div class="logo">
+            GADDAFI<span>.</span>
+        </div>
 
-    <h1>A Special Letter</h1>
+        <div class="subtitle">
+            ENTERTAINMENT
+        </div>
 
-    <div class="subtitle">
-        A private message from Thomas ❤️
-    </div>
-
-    <button class="open-btn" onclick="showEnvelope()">
-        Open the Letter
-    </button>
-
-</section>
-
-<!-- Envelope -->
-<section id="envelopeArea">
-
-    <div class="envelope">💌</div>
-
-    <h2>This letter is private 🔐</h2>
-
-    <p>Enter the secret password to continue.</p>
-
-    <button class="open-btn" onclick="showPassword()">
-        Continue
-    </button>
-
-    <div id="passwordArea">
+        <p style="color:#777;margin-bottom:25px;">
+            Welcome to your digital entertainment world.
+        </p>
 
         <input
             type="password"
             id="password"
-            placeholder="Enter password"
+            placeholder="Enter your password"
+            onkeydown="if(event.key==='Enter') login()"
         >
 
-        <button class="unlock-btn" onclick="unlockLetter()">
-            Unlock ❤️
+        <button class="login-btn" onclick="login()">
+            ENTER THE WORLD
         </button>
 
-        <p id="wrong"></p>
-
-    </div>
-
-</section>
-
-<!-- Letter -->
-<section id="letterArea">
-
-    <div class="letter">
-
-        <h2>To Someone Pretty ❤️</h2>
-
-        <div class="line"></div>
-
-        <div id="typedText"></div>
-
-        <div class="signature">
-            With love,<br>
-            Thomas ❤️
+        <div id="error">
+            Incorrect password. Try again.
         </div>
 
     </div>
 
-    <div class="replay">
-        <button class="replay-btn" onclick="location.reload()">
-            ↻ Replay
-        </button>
+</div>
+
+
+<!-- MAIN WEBSITE -->
+<div id="mainSite">
+
+<header>
+
+    <div class="brand">
+        GADDAFI<span> ENTERTAINMENT</span>
     </div>
 
-    <div class="footer">
-        Made with ❤️ by Thomas
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('movies')">Movies</button>
+        <button onclick="showSection('music')">Music</button>
+        <button onclick="showSection('sports')">Sports</button>
+        <button onclick="showSection('games')">Games</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+<div id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ WELCOME GADDAFI
+        </div>
+
+        <h1>
+            YOUR WORLD OF
+            <span>ENTERTAINMENT.</span>
+        </h1>
+
+        <p>
+            Discover movies, music, sports, games, trending stories
+            and more — all in one classic digital experience.
+        </p>
+
+        <button class="hero-btn" onclick="showSection('movies')">
+            EXPLORE NOW →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+<section>
+
+    <h2 class="section-title">
+        Explore Categories
+    </h2>
+
+    <div class="cards">
+
+        <div class="card" onclick="showSection('movies')">
+            <div class="icon">🎬</div>
+            <h3>Movies</h3>
+            <p>Discover movies, trailers and entertainment content.</p>
+        </div>
+
+        <div class="card" onclick="showSection('music')">
+            <div class="icon">🎵</div>
+            <h3>Music</h3>
+            <p>Explore artists, songs and the latest sounds.</p>
+        </div>
+
+        <div class="card" onclick="showSection('sports')">
+            <div class="icon">⚽</div>
+            <h3>Sports</h3>
+            <p>Football, sports stories and exciting moments.</p>
+        </div>
+
+        <div class="card" onclick="showSection('games')">
+            <div class="icon">🎮</div>
+            <h3>Games</h3>
+            <p>Entertain yourself with fun digital games.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔥</div>
+            <h3>Trending</h3>
+            <p>See what's currently attracting attention.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">😂</div>
+            <h3>Funny</h3>
+            <p>Enjoy jokes, memes and funny entertainment.</p>
+        </div>
+
     </div>
 
 </section>
 
+
+<!-- MOVIES -->
+<section id="movies" style="display:none">
+
+    <h2 class="section-title">🎬 Movies</h2>
+
+    <input
+        class="search-box"
+        placeholder="Search movies..."
+        onkeyup="searchCards(this,'movieCard')"
+    >
+
+    <div class="cards">
+
+        <div class="card movieCard">
+            <div class="icon">🎥</div>
+            <h3>Action</h3>
+            <p>Explore action entertainment and movie information.</p>
+        </div>
+
+        <div class="card movieCard">
+            <div class="icon">🚀</div>
+            <h3>Sci-Fi</h3>
+            <p>Discover futuristic worlds and science fiction.</p>
+        </div>
+
+        <div class="card movieCard">
+            <div class="icon">😂</div>
+            <h3>Comedy</h3>
+            <p>Entertainment designed to make you laugh.</p>
+        </div>
+
+        <div class="card movieCard">
+            <div class="icon">🌍</div>
+            <h3>Adventure</h3>
+            <p>Explore exciting adventure movies and stories.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MUSIC -->
+<section id="music" style="display:none">
+
+    <h2 class="section-title">🎵 Music</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🎧</div>
+            <h3>Afrobeat</h3>
+            <p>Discover Afrobeat artists and music information.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔥</div>
+            <h3>Trending Songs</h3>
+            <p>Explore songs currently attracting attention.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎤</div>
+            <h3>Artists</h3>
+            <p>Explore profiles and information about artists.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SPORTS -->
+<section id="sports" style="display:none">
+
+    <h2 class="section-title">⚽ Sports</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">⚽</div>
+            <h3>Football</h3>
+            <p>Football news, fixtures and entertainment.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Results</h3>
+            <p>Follow sports results and competitions.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h3>World Sports</h3>
+            <p>Explore sports from around the world.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GAMES -->
+<section id="games" style="display:none">
+
+    <h2 class="section-title">🎮 Games</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🧩</div>
+            <h3>Puzzles</h3>
+            <p>Challenge yourself with simple puzzle games.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Arcade</h3>
+            <p>Enjoy classic arcade-style entertainment.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏎‍🟀</div>
+            <h3>Racing</h3>
+            <p>Coming soon — racing entertainment.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 Gaddafi Entertainment • All Rights Reserved
+</footer>
+
+</div>
+
+
 <script>
 
-const letterText =
-`Some people enter our lives and make ordinary moments feel a little more beautiful.
+const PASSWORD = "gaddafi";
 
-Your smile, your kindness, and the way you bring warmth into simple moments make you truly special.
+function login() {
 
-I hope this letter reminds you that you are appreciated, valued, and worthy of beautiful moments every day.
-
-May your days be filled with happiness, laughter, peaceful moments, and countless reasons to smile.
-
-Keep shining, keep being yourself, and never forget that you are special. ❤️`;
-
-function showEnvelope() {
-
-    document.getElementById("welcome").style.display = "none";
-    document.getElementById("envelopeArea").style.display = "block";
-
-}
-
-function showPassword() {
-
-    document.getElementById("passwordArea").style.display = "block";
-
-}
-
-function unlockLetter() {
-
-    const password =
+    const entered =
         document.getElementById("password").value;
 
-    if (password === "thomaslovesdebby") {
+    if (entered === PASSWORD) {
 
-        document.getElementById("envelopeArea").style.display = "none";
-        document.getElementById("letterArea").style.display = "block";
-
-        typeLetter();
-
-        startDecorations();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
 
     } else {
 
-        document.getElementById("wrong").textContent =
-            "Incorrect password. Please try again.";
+        document.getElementById("error").style.display = "block";
 
     }
 }
 
-function typeLetter() {
 
-    const box = document.getElementById("typedText");
+function logout() {
 
-    box.textContent = "";
+    document.getElementById("mainSite").style.display = "none";
+    document.getElementById("loginPage").style.display = "flex";
 
-    let i = 0;
-
-    function typing() {
-
-        if (i < letterText.length) {
-
-            box.textContent += letterText.charAt(i);
-
-            i++;
-
-            setTimeout(typing, 25);
-
-        }
-
-    }
-
-    typing();
-
+    document.getElementById("password").value = "";
 }
 
-function startDecorations() {
 
-    const symbols = ["❤️", "🌸", "🌹", "✨", "💕"];
+function showSection(section) {
 
-    setInterval(() => {
+    document.getElementById("home").style.display =
+        section === "home" ? "flex" : "none";
 
-        const item = document.createElement("div");
+    ["movies","music","sports","games"].forEach(id => {
 
-        item.className = "decor";
+        document.getElementById(id).style.display =
+            section === id ? "block" : "none";
 
-        item.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
+    });
 
-        item.style.left =
-            Math.random() * 100 + "vw";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
-        item.style.fontSize =
-            (15 + Math.random() * 20) + "px";
 
-        item.style.animationDuration =
-            (5 + Math.random() * 5) + "s";
+function searchCards(input, className) {
 
-        document.body.appendChild(item);
+    const search = input.value.toLowerCase();
 
-        setTimeout(() => {
-            item.remove();
-        }, 10000);
+    document.querySelectorAll("." + className)
+        .forEach(card => {
 
-    }, 700);
+            card.style.display =
+                card.innerText.toLowerCase().includes(search)
+                ? "block"
+                : "none";
 
+        });
 }
 
 </script>
