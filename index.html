@@ -1,194 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metro Cyber & Branding Services</title>
-  <style>
-    :root {
-      --orange: #ff8500;
-      --dark: #061321;
-      --panel: #102238;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--dark);
-      color: var(--white);
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 5%;
-      background: #030b14;
-      border-bottom: 2px solid var(--orange);
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      color: var(--orange);
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    button,
-    .btn {
-      background: var(--orange);
-      color: #111;
-      border: none;
-      border-radius: 7px;
-      padding: 11px 15px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    nav button {
-      background: transparent;
-      color: white;
-    }
-
-    button:hover,
-    .btn:hover {
-      opacity: 0.8;
-    }
-
-    main {
-      padding: 25px 5%;
-    }
-
-    .hero {
-      padding: 55px 25px;
-      border-radius: 15px;
-      background: linear-gradient(120deg, #102b43, #07111c);
-      border: 1px solid #24425d;
-    }
-
-    h1 {
-      font-size: clamp(30px, 5vw, 52px);
-    }
-
-    h1 span,
-    h2 span {
-      color: var(--orange);
-    }
-
-    p {
-      line-height: 1.6;
-      color: #d4deea;
-    }
-
-    section {
-      margin-bottom: 35px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .card,
-    .form-box {
-      background: var(--panel);
-      border: 1px solid #29435c;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .card h3 {
-      color: var(--orange);
-    }
-
-    .card button {
-      margin-top: 8px;
-    }
-
-    input,
-    select,
-    textarea {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #53677b;
-      background: #071421;
-      color: white;
-    }
-
-    textarea {
-      min-height: 90px;
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    footer {
-      padding: 25px 5%;
-      background: #030b14;
-      text-align: center;
-      border-top: 2px solid var(--orange);
-    }
-
-    .small {
-      font-size: 13px;
-    }
-
-    a {
-      color: var(--orange);
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="brand">
-      🟠 METRO CYBER<br>
-      <small>CYBER & BRANDING SERVICES</small>
-    </div>
-    <nav>
-      <button onclick="showPage('home')">Home</button>
-      <button onclick="showPage('services')">Services</button>
-      <button onclick="showPage('gallery')">Gallery</button>
-      <button onclick="showPage('contact')">Contact</button>
-      <button onclick="showPage('login')">Customer Login</button>
-      <button onclick="showPage('staff')">Staff Login</button>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HOME -->
-    <div id="home" class="page active">
-      <section class="hero">
-        <h1>Your Digital World.<br>Your Brand. <span>One Place.</span></h1>
-        <p>Professional cyber services, printing, photo mounting, T-shirt printing, banners and creative branding in Mlolongo.</p>
-        <button onclick="showPage('services')">Explore Services →</button>
-        <button onclick="showPage('order')">Order a Service</button>
-      </section>
-
-      <section>
-        <h2>Our <span>Key Services</span></h2>
-        <div class="grid">
-          <div class="card">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metro Cyber & Branding Services</title>
+<style>
+:root {
+  --orange: #ff8500;
+  --dark: #061321;
+  --panel: #102238;
+  --white: #ffffff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); background: var(--dark); }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--dark);
+  color: var(--white);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 5%;
+  background: #030b14;
+  border-bottom: 2px solid var(--orange);
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.brand { color: var(--orange); font-size: 20px; font-weight: bold; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+button, .btn {
+  background: var(--orange);
+  color: #111;
+  border: none;
+  border-radius: 7px;
+  padding: 11px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 0;
+}
+nav button { background: tran
