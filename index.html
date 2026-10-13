@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Metro Cyber & Branding Services</title>
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" id="favicon" type="image/png">
 <style>
 :root {
   --orange: #ff8500;
@@ -100,7 +100,7 @@ footer {
 }
 .small { font-size: 13px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { width: 52px; height: 52px; border-radius: 50%; display: block; }
+.brand img { width: 64px; height: 64px; border-radius: 50%; display: block; }
 .hero { display: flex; align-items: center; justify-content: space-between; gap: 25px; flex-wrap: wrap; }
 .hero-text { flex: 1 1 320px; }
 .hero-logo { width: min(240px, 60%); height: auto; border-radius: 50%; margin: 0 auto; }
@@ -114,7 +114,7 @@ a { color: var(--orange); }
 
 <header>
   <div class="brand">
-    <img src="logo.png" alt="Metro Cyber & Branding Services logo">
+    <img class="logo" alt="Metro Cyber & Branding Services logo">
     <div>METRO CYBER<br><small>CYBER & BRANDING SERVICES</small></div>
   </div>
   <nav>
@@ -142,7 +142,7 @@ a { color: var(--orange); }
       <button onclick="showPage('services')">Explore Services →</button>
       <button onclick="showPage('order')">Order a Service</button>
     </div>
-    <img class="hero-logo" src="logo.png" alt="Metro Cyber & Branding Services logo">
+    <img class="hero-logo logo" alt="Metro Cyber & Branding Services logo">
   </section>
 
   <section>
@@ -179,7 +179,7 @@ a { color: var(--orange); }
   <section>
     <h2>Meet <span>Our Team</span></h2>
     <div class="card team">
-      <img src="team.jpg" alt="Metro Cyber team member holding a custom printed T-shirt in the shop">
+      <img src="team.jpg" alt="Metro Cyber team member holding a custom printed T-shirt in the shop" onerror="this.style.display='none'">
       <div class="team-text">
         <h3>Welcome to Metro Cyber</h3>
         <p>Our team prints and brands custom T-shirts right here in the shop,
@@ -319,6 +319,57 @@ a { color: var(--orange); }
 </footer>
 
 <script>
+const LOGO = "data:image/png;base64," +
+  "iVBORw0KGgoAAAANSUhEUgAAAPAAAADwAgMAAABDOwEBAAAADFBMVEX/hQAAAAD/" +
+  "//8AAAD147WfAAAABHRSTlP///8AQCqp9AAACFNJREFUeNrdWz2L5MgZfvTSDTpt" +
+  "ooMZmMiI4wxDb+C/oH/gCW4uctA/4IL5AcdQTOTQ4YWNA9P0LkyHBgejH2FmF7wY" +
+  "RWZvbzk6mmmmZZUDfXR9vFUqqYM9rGBnW13P+/0+VdVSRRLO65cCQPSde8DMA30U" +
+  "ABLpgUvHtRHdCNq4xjjA9UZVsHkYBd7o5i0eRoA3pnObcPAnOzRvQsEvwgbTfSB4" +
+  "xWUlCQN/4nP6JgRcCx5MDwHgj65yem0NJavifgKAVL2VN3/ebc2xkdkYP18AOM8P" +
+  "x5HXaD+8/qfpCac4yjHv78zRfXhXDIA/CQBnAK66O2lveP2DH9x4nKu9mrfSGNUG" +
+  "uOrzFKl/2w/1jRf8NxVns8W/fGC5PI7PmVQ/bT1gpjJTTdKPHvBPyviUqzI9ZBr4" +
+  "IGyDc01SvXOC/2NHKjJU/8kFbhs58jH0c+EAV1ozRiyva3aTbTU3D0Ss3SrYoJ+c" +
+  "jblqN1mx5nOUc3Yr4F/Z8rCuH1nw330aj5LeceCmrpXxjgm0LhjwC3xRViTdMOCO" +
+  "NaNDoQB/KSyBH5h27RO1VUusmJuJxrOtWXblJSGPzktUHqfJ6zKgSrKcJtNlACi8" +
+  "iT46TY7a9El6NsFS7aidGsyd22niXK4G1lw3Bvijs0Iqt9Oke6ZHmO/o4/cduHR2" +
+  "BSNpX2hgKbgI8x0N1LpmvkRSl6QbDWzEa+eUpEWMfCXiSnRXJsSihhLdukJcvAYT" +
+  "XauaXzB8RXbEaLgPpdMvchanL9FtTREf7IGObsPdgIVXJSOp6UrivdoN7X2OmgeC" +
+  "zUm6cUe7y23kFFj14IFgc5LKHrwKIVwm3BSQYKck0it7sfHQgcWghmZhpDz1lgxp" +
+  "mSIgc9OBRSa65thLBzMzBaRlKuvx1ZDmsgWXQ03MJfq5BRdKvHouDmlSGuip3Jno" +
+  "AiBVCQ3wvkljZAVbhPF+qyyE/ZgquTE0Z/0/YXRAVkPGgXTwwdAsxtBBo7n07y49" +
+  "VUKuUA7SgaGH4OJhhySyJ7ksjPfrgqchCuF9ANQvMPokxc1/AhJNducSw6Y873Nm" +
+  "b2otPXO1vWe6mv1AQV//USGW6ys1+cRR3T6IDkrN7P0w7+sRIhe5+ZdGHbgcmNOd" +
+  "y7tnEDdG2OOLsGLyriFNsLAWs7VHUqEWN8mhOd3DoxyT7JksVdxcQAG5daaNaju/" +
+  "XJplaLSF21ktAzdUDdXnzh02ci6mO1jhrjqyYXs2OjvGc9pb3pZauKUqqfKZXQJQ" +
+  "fnEtlPHSrtgPpH1+0qO2U8dv7agZAVuiXiq/2QCyUD/4G99cz1wrc8T82vj2lR/s" +
+  "v14RTrhOA59g9vNpmosv5rP32/Pc+7V/25UfpmuOBmR/wSL5PwCfXyG6NhpaXYX4" +
+  "wFE+z8/QPEg8758nzju5Nh2o4DPg6xxRDmCeR1fqHmWez4HoCt85wXlTcCmAK6jL" +
+  "L+AKyHGGRjIHjo4VG7UA/asc/YMYCzzTHNA+z3oJ0UCqIuNv0a527QcrxGx88nZE" +
+  "3k8VOYAiDWtJxbY33WdpPA6xzD5s29HA4S2QKnOEfNvOPzMXeAdIFMAM2MpCM+8z" +
+  "IuDwD8/8fJxCJbBTlTSitsY0STm7Z6y0uThFBcwggUrLlYNnrEntlJbccWuziLLw" +
+  "9jUX3vFvloYibzXSCB+t7fQsZWPbVCOAvMDVthUVjfU5RTRXqGamJmtGMe9rjuvW" +
+  "z7NjC6fQqDQjh7Pn58iBQllMyabuqhCz85BUzZwbhNRYaxbWcp28mzl70awuP1Oi" +
+  "4T4oFElqZwhi1/FVJ6FQxsuBXaxEhR2KhjgKAJ8BfMYORbdo3mrgY9l8lkCxQyUb" +
+  "0KGlH1k0t4BDe1NRJib3lPyS/ZxPhUYgZFPB8almp6eA46nQb1uzaQPgshW3Ajbr" +
+  "bsRle3fR3rnUNc8AxBD9tjmOuQzypSRrAAkJoJW9WADrpBusmGNeD22FZTWJS1pj" +
+  "g0W3C14kK2ywaG8DSFZYry4vkzWtadOZHfVmUQIhRHkLJKs7kSUEIYCYCCskIkuo" +
+  "Yb24IU3KQYo7Au+/qUX7WOPpVsTvv3kCsuWf96iR3S7j97EARLYUj31td/VZl+IS" +
+  "+zZYcYkSt4BAvce/gWVMKyHEHrePWLXOKc8Puk3t70SJp6Vo9tHNfk/EeBKA6JKw" +
+  "B4CvupyUJDIhgMdlcyfufovMBACIPYD6+0ZWjO9vl6LTnAJY1wloJRYASpGBVgJ3" +
+  "K6BOAGC/ADbibg2gxN1fsU5WAL4FCIiBPYRAWTc7/joGaojyqBMA9mVjb1mXx5qR" +
+  "smIKz7jWzL0/SEkhZLLgfrr5C0ADv397ChuAlMP8uWG5s3kzrZhGvM2baZNY7Ku2" +
+  "cdNTeDueRkINeDaZAaWU9RTcg5QykgjJtO3ufzumEyeYLSf8SvOKfQNx9BR7MS1T" +
+  "jdn1tGCfZnbzyqaY0hbd+56jw53IE8yOlAXNxbRgN2bXk4Ldmh2dEu2x4Sbt7dpy" +
+  "QmX30b6YFK9W88iI3csT8pxqmsdFjIzXkcsJ8erNvpgSr05zPb6+lLeoxXiXj+By" +
+  "vMvHVI1wOjNqe5TT95bmKNhpSi3N4U4nzGvnwU7/HrbmemyWtbflxcgsa+ByZJa1" +
+  "lrwYWdiqz86jAYbVD/wJgXJconQmuRiZKO0ASz0uUcbBhnKc1ToBXoy0GiFHMfhY" +
+  "m+cxyhEVYoFfgluZOwkiguuaAQ+8HffaC/aHzDzDYh5gKYOTzIDr8HAxR2dW4Ypt" +
+  "8Eu4YubQzipYMXdcyBXq+5CDSh+DcuwA87lmzinxh7OCouU6FsYYvgg+U1ZbEU8e" +
+  "wk+zmehkzFE4+aKhk/tRh/BkrfxM4DiC5wZLuWmVJ86jgzJyv0Mj3+Lxbu17Bv0/" +
+  "iHwibiza1i8AAAAASUVORK5CYII=";
+document.querySelectorAll(".logo").forEach(i => i.src = LOGO);
+document.getElementById("favicon").href = LOGO;
+
 const services = {
   "Cyber Services": "Typing, CV writing, scanning, photocopying, document preparation and online assistance.",
   "Photo Mounting": "A4 and A3 photo mounting, photo printing, framing, restoration and photo editing.",
